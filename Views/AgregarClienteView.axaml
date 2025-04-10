@@ -1,0 +1,40 @@
+<!-- Views/AgregarClienteView.axaml -->
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MyAvaloniaApp.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="400"
+             d:DesignHeight="300"
+             x:Class="MyAvaloniaApp.Views.AgregarClienteView"
+             x:DataType="vm:AgregarClienteViewModel">
+    <StackPanel Margin="20" Spacing="10">
+        <TextBlock Text="Agregar Nuevo Cliente" FontSize="18" FontWeight="Bold"/>
+        <StackPanel Spacing="5">
+            <TextBlock Text="Nombre:"/>
+            <TextBox Text="{Binding Nombre}" Watermark="Ingrese nombre completo"/>
+        </StackPanel>
+
+        <StackPanel Spacing="5">
+            <TextBlock Text="RUT:"/>
+            <TextBox Text="{Binding Rut}" Watermark="Ingrese RUT"/>
+        </StackPanel>
+
+        <StackPanel Spacing="5">
+            <TextBlock Text="Dirección:"/>
+            <TextBox Text="{Binding Direccion}" Watermark="Ingrese dirección"/>
+        </StackPanel>
+
+        <StackPanel Spacing="5">
+            <TextBlock Text="Teléfono:"/>
+            <TextBox Text="{Binding Telefono}" Watermark="Ingrese teléfono"/>
+        </StackPanel>
+
+        <Button Content="Guardar Cliente" 
+                Command="{Binding GuardarClienteCommand}"
+                HorizontalAlignment="Right"
+                Margin="0,20,0,0"
+                Width="120"/>
+    </StackPanel>
+</UserControl>

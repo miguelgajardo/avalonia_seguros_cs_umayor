@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MyAvaloniaApp.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        d:DesignWidth="800" 
+        d:DesignHeight="600"
+        x:Class="MyAvaloniaApp.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="Sistema de Gestión de Pólizas">
+
+    <Design.DataContext>  <!-- Added design-time context -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel>
+        <!-- Menú principal -->
+        <Menu DockPanel.Dock="Top" x:DataType="vm:MainWindowViewModel">  <!-- Added DataType -->
+            <MenuItem Header="_Archivo">
+                <MenuItem Header="_Salir" Command="{Binding SalirCommand}"/>
+            </MenuItem>
+            <MenuItem Header="_Clientes">
+                <MenuItem Header="_Agregar Cliente" Command="{Binding MostrarAgregarClienteCommand}"/>
+                <MenuItem Header="_Listar Clientes" Command="{Binding MostrarListarClientesCommand}"/>
+            </MenuItem>
+            <MenuItem Header="_Pólizas">
+                <!-- <MenuItem Header="_Agregar Póliza" Command="{Binding MostrarAgregarPolizaCommand}"/> -->
+                <MenuItem Header="_Simular Adquisición" Command="{Binding MostrarSimularAdquisicionCommand}"/>
+                <!-- <MenuItem Header="_Consultar Pólizas" Command="{Binding MostrarConsultarPolizasCommand}"/> -->
+            </MenuItem>
+        </Menu>
+    <Button Content="DEBUG: Test View" 
+        Command="{Binding MostrarAgregarClienteCommand}"
+        HorizontalAlignment="Center"/>
+        <!-- Contenido principal -->
+      <!-- <ContentControl Content="{Binding VistaActual}" 
+               x:DataType="vm:MainWindowViewModel"/> -->
+               <ContentControl Content="{Binding VistaActual}"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"/>
+    </DockPanel>
+</Window>

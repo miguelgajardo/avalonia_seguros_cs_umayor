@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MyAvaloniaApp.ViewModels"
+             xmlns:model="using:MyAvaloniaApp.Models"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="MyAvaloniaApp.Views.ListarClientesView"
+             x:DataType="vm:ListarClientesViewModel">
+
+    <StackPanel Margin="20">
+        <TextBlock Text="Listado de Clientes" 
+                   FontSize="24"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+        
+        <!-- Clientes List -->
+        <ItemsControl ItemsSource="{Binding Clientes}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="model:Cliente">
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <TextBlock Text="{Binding Nombre}" Width="200"/>
+                        <TextBlock Text="{Binding Apellido}" Margin="20,0,0,0"/>
+                        <TextBlock Text="{Binding Rut}" Width="200"/>
+                        <TextBlock Text="{Binding Telefono}" Margin="20,0,0,0"/>
+                        
+                        <!-- Show Polizas for each Cliente -->
+                        <ItemsControl ItemsSource="{Binding Polizas}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="model:Poliza">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Codigo}" />
+                                        <TextBlock Text="{Binding Tipo}" />
+                                        <TextBlock Text="{Binding Vigencia}" />
+                                        <TextBlock Text="{Binding PrimaUF}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>

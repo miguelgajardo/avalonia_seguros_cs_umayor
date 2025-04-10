@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:MyAvaloniaApp.ViewModels"
+    xmlns:model="using:MyAvaloniaApp.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="400"
+    d:DesignHeight="300"
+    x:Class="MyAvaloniaApp.Views.SimularAdquisicionView"
+    x:DataType="vm:SimularAdquisicionViewModel">
+    <StackPanel Margin="20" Spacing="10">
+        <TextBlock Text="Simular Adquisición de Póliza" FontSize="18" FontWeight="Bold" />
+        <!-- Seleccionar Cliente -->
+        <ComboBox ItemsSource="{Binding Clientes}"
+            SelectedItem="{Binding ClienteSeleccionado}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Nombre}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <!-- Campo Tipo Póliza -->
+        <StackPanel Spacing="5">
+            <TextBlock Text="Tipo Póliza:"/>
+            <TextBox Text="{Binding NuevaPoliza.Tipo}" Watermark="Tipo de Póliza"/>
+        </StackPanel>
+        <!-- Campo Vigencia -->
+        <StackPanel Spacing="5">
+            <TextBlock Text="Vigencia (año):"/>
+            <TextBox Text="{Binding NuevaPoliza.Vigencia}" Watermark="Tipo de Póliza"/>
+        </StackPanel>
+        <!-- Campo Prima UF -->
+        <StackPanel Spacing="5">
+            <TextBlock Text="Ingrese el monto en UF (ej. 2.6):"/>
+            <TextBox Text="{Binding NuevaPoliza.PrimaUF}" Watermark="Prima en UF"/>
+        </StackPanel>
+        <Button Content="Guardar Póliza" Command="{Binding GuardarPolizaCommand}" Width="300"
+            Margin="0,20" />
+    </StackPanel>
+</UserControl>
