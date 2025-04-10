@@ -30,9 +30,9 @@
                 <!-- <MenuItem Header="_Consultar Pólizas" Command="{Binding MostrarConsultarPolizasCommand}"/> -->
             </MenuItem>
         </Menu>
-    <Button Content="DEBUG: Test View" 
+    <!-- <Button Content="DEBUG: Test View" 
         Command="{Binding MostrarAgregarClienteCommand}"
-        HorizontalAlignment="Center"/>
+        HorizontalAlignment="Center"/> -->
         <!-- Contenido principal -->
       <!-- <ContentControl Content="{Binding VistaActual}" 
                x:DataType="vm:MainWindowViewModel"/> -->
